@@ -1,0 +1,21 @@
+<app-search (searchEvent)="onSearch($event)"></app-search>
+<p>Residence List</p>
+<div class="d-flex overflow-auto gap-3">
+  <app-residence
+    *ngFor="let residence of filteredResidences"
+    [residence]="residence"
+    [isFavorited]="favoriteResidences.includes(residence)"
+    (addToFavorites)="handleAddToFavorites($event)"
+    (click)="navigateToDetails(residence.id)"
+  ></app-residence>
+</div>
+
+<p>Favorite List</p>
+<div class="d-flex overflow-auto gap-3">
+  <app-residence
+    *ngFor="let residence of favoriteResidences"
+    [residence]="residence"
+    [isFavorited]="true"
+    (addToFavorites)="handleAddToFavorites($event)"
+  ></app-residence>
+</div>

@@ -1,0 +1,12 @@
+<div *ngIf="residence">
+  <h2>{{ residence.name }}</h2>
+  <p>{{ residence.address }}</p>
+  <img [src]="residence.image" alt="{{ residence.name }}" />
+  <p>Status: {{ residence.status }}</p>
+  <p>Price: {{ residence.price }} TND</p>
+  <p>Size: {{ residence.size }} sqm</p>
+  <p>Bedrooms: {{ residence.bedrooms }}</p>
+  <p>Bathrooms: {{ residence.bathrooms }}</p>
+</div>
+
+

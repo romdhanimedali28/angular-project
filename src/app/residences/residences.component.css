@@ -1,0 +1,8 @@
+.d-flex.overflow-auto {
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem;
+}
+.property-item {
+  flex-shrink: 0;
+}
