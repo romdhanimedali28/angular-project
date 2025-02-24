@@ -1,1 +1,85 @@
-<p>add-apartment works!</p>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add New Apartment</h2>
+  <form [formGroup]="apartmentForm" (ngSubmit)="onSubmit()" class="border p-4 rounded shadow-sm bg-light">
+    <!-- Apartment Number -->
+    <div class="mb-3">
+      <label for="apartNum" class="form-label">Apartment Number</label>
+      <input type="number" class="form-control" id="apartNum" formControlName="apartNum">
+      <div *ngIf="apartmentForm.get('apartNum')?.invalid && apartmentForm.get('apartNum')?.touched" class="text-danger">
+        <small *ngIf="apartmentForm.get('apartNum')?.errors?.['required']">Ce champ est obligatoire.</small>
+        <small *ngIf="apartmentForm.get('apartNum')?.errors?.['pattern']">Seuls les chiffres sont autorisés.</small>
+      </div>
+    </div>
+
+    <!-- Floor Number -->
+    <div class="mb-3">
+      <label for="floorNum" class="form-label">Floor Number</label>
+      <input type="number" class="form-control" id="floorNum" formControlName="floorNum">
+      <div *ngIf="apartmentForm.get('floorNum')?.invalid && apartmentForm.get('floorNum')?.touched" class="text-danger">
+        <small *ngIf="apartmentForm.get('floorNum')?.errors?.['required']">Ce champ est obligatoire.</small>
+        <small *ngIf="apartmentForm.get('floorNum')?.errors?.['pattern']">Seuls les chiffres sont autorisés.</small>
+      </div>
+    </div>
+
+    <!-- Surface -->
+    <div class="mb-3">
+      <label for="surface" class="form-label">Surface (sqm)</label>
+      <input type="number" class="form-control" id="surface" formControlName="surface">
+      <div *ngIf="apartmentForm.get('surface')?.invalid && apartmentForm.get('surface')?.touched" class="text-danger">
+        <small *ngIf="apartmentForm.get('surface')?.errors?.['required']">Ce champ est obligatoire.</small>
+      </div>
+    </div>
+
+    <!-- Terrace (Radio Buttons) -->
+    <div class="mb-3">
+      <label class="form-label">Terrace</label>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="terraceYes" formControlName="terrace" value="true">
+          <label class="form-check-label" for="terraceYes">Yes</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="terraceNo" formControlName="terrace" value="false">
+          <label class="form-check-label" for="terraceNo">No</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terrace Surface -->
+    <div class="mb-3" *ngIf="apartmentForm.get('terrace')?.value === 'true'">
+      <label for="surfaceTerrace" class="form-label">Terrace Surface (sqm)</label>
+      <input type="number" class="form-control" id="surfaceTerrace" formControlName="surfaceTerrace">
+      <div *ngIf="apartmentForm.get('surfaceTerrace')?.invalid && apartmentForm.get('surfaceTerrace')?.touched" class="text-danger">
+        <small *ngIf="apartmentForm.get('surfaceTerrace')?.errors?.['required']">Ce champ est obligatoire.</small>
+      </div>
+    </div>
+
+    <!-- Category (Radio Buttons) -->
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="categoryS1" formControlName="category" value="S+1">
+          <label class="form-check-label" for="categoryS1">S+1</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="categoryS2" formControlName="category" value="S+2">
+          <label class="form-check-label" for="categoryS2">S+2</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" id="categoryS3" formControlName="category" value="S+3">
+          <label class="form-check-label" for="categoryS3">S+3</label>
+        </div>
+      </div>
+      <div *ngIf="apartmentForm.get('category')?.invalid && apartmentForm.get('category')?.touched" class="text-danger">
+        <small *ngIf="apartmentForm.get('category')?.errors?.['required']">Ce champ est obligatoire.</small>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary me-2" [disabled]="apartmentForm.invalid">Add</button>
+      <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+    </div>
+  </form>
+</div>

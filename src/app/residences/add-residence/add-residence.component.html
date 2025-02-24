@@ -1,12 +1,114 @@
-<p>add-residence works!</p>
-<form [formGroup]="myForm">
-  <label>
-    <input type="radio" formControlName="selectedOption" value="option1"> Option 1
-  </label>
-  <label>
-    <input type="radio" formControlName="selectedOption" value="option2"> Option 2
-  </label>
-  <label>
-    <input type="radio" formControlName="selectedOption" value="option3"> Option 3
-  </label>
-</form>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add New Residence</h2>
+  <form [formGroup]="residenceForm" (ngSubmit)="onSubmit()" class="border p-4 rounded shadow-sm bg-light">
+    <!-- Name -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        placeholder="Enter residence name"
+        required
+      />
+    </div>
+
+    <!-- Address -->
+    <div class="mb-3">
+      <label for="address" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        formControlName="address"
+        placeholder="Enter residence address"
+        required
+      />
+    </div>
+
+    <!-- Image Upload -->
+    <div class="mb-3">
+      <label for="image" class="form-label">Upload Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        (change)="onFileSelected($event)"
+        accept="image/*"
+        required
+      />
+      <!-- Image Preview -->
+      <div *ngIf="imagePreview" class="mt-3">
+        <img [src]="imagePreview" alt="Residence Image Preview" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" id="status" formControlName="status" required>
+        <option value="Disponible">Disponible</option>
+        <option value="Vendu">Vendu</option>
+        <option value="En Construction">En Construction</option>
+      </select>
+    </div>
+
+    <!-- Price -->
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        formControlName="price"
+        placeholder="Enter price"
+        required
+      />
+    </div>
+
+    <!-- Size -->
+    <div class="mb-3">
+      <label for="size" class="form-label">Size (sqft)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="size"
+        formControlName="size"
+        placeholder="Enter size"
+        required
+      />
+    </div>
+
+    <!-- Bedrooms -->
+    <div class="mb-3">
+      <label for="bedrooms" class="form-label">Bedrooms</label>
+      <input
+        type="number"
+        class="form-control"
+        id="bedrooms"
+        formControlName="bedrooms"
+        placeholder="Enter number of bedrooms"
+        required
+      />
+    </div>
+
+    <!-- Bathrooms -->
+    <div class="mb-3">
+      <label for="bathrooms" class="form-label">Bathrooms</label>
+      <input
+        type="number"
+        class="form-control"
+        id="bathrooms"
+        formControlName="bathrooms"
+        placeholder="Enter number of bathrooms"
+        required
+      />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Add Residence</button>
+    </div>
+  </form>
+</div>

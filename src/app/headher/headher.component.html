@@ -13,8 +13,14 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto">
               <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-item nav-link active">Home</a>
-              <a routerLink="/residences" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-item nav-link">Residence List</a>
-              <a routerLink="/residences/add-residence" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-item nav-link">add res</a>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Residences</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                  <a routerLink="/residences" routerLinkActive="active" ariaCurrentWhenActive="page" class="dropdown-item">Residence List</a>
+                  <a routerLink="/add-residence" routerLinkActive="active" ariaCurrentWhenActive="page" class="dropdown-item">Add Residence</a>
+                </div>
+            </div>
+            <a routerLink="/apartments" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-item nav-link">Apartments</a>
               <div class="nav-item dropdown">
                   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
                   <div class="dropdown-menu rounded-0 m-0">

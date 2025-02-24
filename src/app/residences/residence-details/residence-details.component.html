@@ -9,4 +9,11 @@
   <p>Bathrooms: {{ residence.bathrooms }}</p>
 </div>
 
+<!-- Lien pour ajouter un appartement avec l'ID de la résidence -->
+<a [routerLink]="['/apartments/add-apartment', residence.id]" class="btn btn-info btn-sm mt-2">
+  Add Apartment
+</a>
 
+
+
+<app-apartments-by-residence [residenceId]="residence.id"></app-apartments-by-residence>

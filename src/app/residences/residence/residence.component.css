@@ -22,3 +22,8 @@
 .not-favorited {
   color: gray;
 }
+.property-item img {
+  width: 100%; /* Largeur fixe */
+  height: 200px; /* Hauteur fixe */
+  object-fit: cover; /* Pour conserver le ratio de l'image */
+}

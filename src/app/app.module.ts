@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ResidencesComponent } from './residences/residences.component';
 import { FilterByAddressPipe } from './filter-by-address.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './residences/search/search.component';
 import { HeadherComponent } from './headher/headher.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,8 +15,8 @@ import { ResidenceDetailsComponent } from './residences/residence-details/reside
 import { AddResidenceComponent } from './residences/add-residence/add-residence.component';
 import { ApartmentsComponent } from './Apartments/apartments/apartments.component';
 import { ApartmentsByResidenceComponent } from './Apartments/apartments-by-residence/apartments-by-residence.component';
-import { AddApartmentComponent } from './Apartments/add-apartment/add-apartment.component';
 import { ResidenceComponent } from './residences/residence/residence.component';
+import { AddApartmentComponent } from './Apartments/add-apartment/add-apartment.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { ResidenceComponent } from './residences/residence/residence.component';
     ApartmentsComponent,
     ApartmentsByResidenceComponent,
     AddApartmentComponent,
-
 
   ],
   imports: [
