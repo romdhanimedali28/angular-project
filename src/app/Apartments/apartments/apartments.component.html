@@ -1,1 +1,22 @@
-<p>apartments works!</p>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Apartments List</h2>
+
+  <!-- Liste des appartements -->
+  <div class="row">
+    <div *ngFor="let apartment of apartments" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Apartment {{ apartment.apartNum }}</h5>
+          <p class="card-text">
+            Floor: {{ apartment.floorNum }}<br>
+            Surface: {{ apartment.surface }} sqm<br>
+            Terrace: {{ apartment.terrace ? 'Yes' : 'No' }}<br>
+            Terrace Surface: {{ apartment.surfaceTerrace }} sqm<br>
+            Category: {{ apartment.category }}<br>
+            Residence ID: {{ apartment.residenceId }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

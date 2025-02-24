@@ -7,12 +7,12 @@ import { Residence } from 'src/app/core/models/residence.model';
   styleUrls: ['./residence.component.css']
 })
 export class ResidenceComponent {
-  @Input() residence!: Residence;
-  @Input() isFavorited: boolean = false;
-  @Output() addToFavorites = new EventEmitter<Residence>();
+  @Input() residence!: Residence; // Entrée : Résidence à afficher
+  @Input() isFavorited: boolean = false; // Entrée : Indique si la résidence est favorisée
+  @Output() addToFavorites = new EventEmitter<Residence>(); // Sortie : Événement pour ajouter/supprimer des favoris
 
+  // Méthode pour émettre l'événement addToFavorites
   onFavoriteToggle(): void {
     this.addToFavorites.emit(this.residence);
   }
-
 }

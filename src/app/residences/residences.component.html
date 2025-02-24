@@ -1,5 +1,8 @@
 <app-search (searchEvent)="onSearch($event)"></app-search>
-<p>Residence List</p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <p class="mb-0">Residence List</p> <!-- Left-aligned text -->
+  <button class="btn btn-success" routerLink="/add-residence">Add New Residence</button> <!-- Right-aligned button -->
+</div>
 <div class="d-flex overflow-auto gap-3">
   <app-residence
     *ngFor="let residence of filteredResidences"
@@ -7,7 +10,9 @@
     [isFavorited]="favoriteResidences.includes(residence)"
     (addToFavorites)="handleAddToFavorites($event)"
     (click)="navigateToDetails(residence.id)"
-  ></app-residence>
+  >
+  
+</app-residence>
 </div>
 
 <p>Favorite List</p>

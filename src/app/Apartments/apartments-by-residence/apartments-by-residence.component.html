@@ -1,1 +1,20 @@
-<p>apartments-by-residence works!</p>
+<div class="mt-4">
+  <h3>Appartements de cette résidence</h3>
+  <div *ngIf="apartments.length > 0; else noApartments">
+    <div *ngFor="let apartment of apartments" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Appartement {{ apartment.apartNum }}</h5>
+        <p class="card-text">
+          Étage: {{ apartment.floorNum }}<br>
+          Surface: {{ apartment.surface }} m²<br>
+          Terrasse: {{ apartment.terrace ? 'Oui' : 'Non' }}<br>
+          Surface de la terrasse: {{ apartment.surfaceTerrace }} m²<br>
+          Catégorie: {{ apartment.category }}<br>
+        </p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noApartments>
+    <p>Aucun appartement trouvé pour cette résidence.</p>
+  </ng-template>
+</div>

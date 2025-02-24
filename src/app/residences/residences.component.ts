@@ -46,11 +46,13 @@ export class ResidencesComponent implements OnInit {
       }    }
   }
 
-  onSearch(searchCriteria: { keyword: string, propertyType: string, location: string }): void {
+  onSearch(searchCriteria: { name: string, address: string, status: string }): void {
     this.filteredResidences = this.listResidences.filter(residence => {
-      return (
-        (searchCriteria.keyword ? residence.name.toLowerCase().includes(searchCriteria.keyword.toLowerCase()) : true)
-      );
+      const matchesName = searchCriteria.name ? residence.name.toLowerCase().includes(searchCriteria.name.toLowerCase()) : true;
+      const matchesAddress = searchCriteria.address ? residence.address === searchCriteria.address : true;
+      const matchesStatus = searchCriteria.status ? residence.status === searchCriteria.status : true;
+
+      return matchesName && matchesAddress && matchesStatus;
     });
   }
 
