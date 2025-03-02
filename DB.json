@@ -1,0 +1,48 @@
+{
+  "residences": [
+    {
+      "id": 1,
+      "name": "El fel",
+      "address": "Borj Cedria",
+      "image": "assets/images/im1.jpg",
+      "status": "Disponible",
+      "price": 15000,
+      "size": 1200,
+      "bedrooms": 3,
+      "bathrooms": 2
+    },
+    {
+      "id": 2,
+      "name": "El yasmine",
+      "address": "Ezzahra",
+      "image": "assets/images/im2.jpg",
+      "status": "Disponible",
+      "price": 18000,
+      "size": 1400,
+      "bedrooms": 4,
+      "bathrooms": 3
+    }
+  ],
+  "apartments": [
+    {
+      "id": 1,
+      "apartNum": 101,
+      "floorNum": 1,
+      "surface": 1200,
+      "terrace": true,
+      "surfaceTerrace": 200,
+      "category": "Luxury",
+      "residenceId": 1
+    },
+    {
+      "id": 2,
+      "apartNum": 102,
+      "floorNum": 1,
+      "surface": 1000,
+      "terrace": false,
+      "surfaceTerrace": 0,
+      "category": "Standard",
+      "residenceId": 1
+    }
+  ]
+}

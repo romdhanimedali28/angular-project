@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApartmentsService } from '../../core/services/apartments.service';
 import { Apartment } from '../../core/models/apartment.model';
+import { CommonService } from 'src/app/core/services/common.service';
 
 @Component({
   selector: 'app-apartments',
@@ -8,12 +9,19 @@ import { Apartment } from '../../core/models/apartment.model';
   styleUrls: ['./apartments.component.css']
 })
 export class ApartmentsComponent implements OnInit {
-  apartments: Apartment[] = []; // Liste des appartements
-
-  constructor(private apartmentsService: ApartmentsService) {}
+  apartments: Apartment[] = [];
+  sameSurfaceCount : number =0 ;
+  constructor(private apartmentsService: ApartmentsService,private commonService: CommonService) {}
 
   ngOnInit(): void {
-    // Récupérer tous les appartements au chargement du composant
     this.apartments = this.apartmentsService.getAllApartments();
+    this.sameSurfaceCount = this.commonService.getSameValueOf(
+      this.apartments,
+      'surface',
+      100
+    );
+    console.log("number of surface", this.sameSurfaceCount);
+
+
   }
 }
