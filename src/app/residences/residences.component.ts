@@ -2,6 +2,7 @@ import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Residence } from '../core/models/residence.model';
 import { ResidencesService } from '../core/services/residences.service';
 import { Router } from '@angular/router';
+import { CommonService } from '../core/services/common.service';
 
 @Component({
   selector: 'app-residences',
@@ -9,17 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./residences.component.css']
 })
 export class ResidencesComponent implements OnInit {
-
+  similarAddressesCount: number = 0;
   listResidences: Residence[] = [];
   filteredResidences: Residence[] = [];
   searchTerm: string = '';
-  constructor(private residencesService: ResidencesService , private router: Router) { }
+  constructor(private residencesService: ResidencesService , private router: Router,     private commonService: CommonService) { }
 
   ngOnInit(): void {
     this.listResidences = this.residencesService.getResidences();
-    this.filteredResidences = this.listResidences; // Initially, display all residences
-    console.log('Le composant a été initialisé');
-
+    this.filteredResidences = this.listResidences;
+    this.similarAddressesCount = this.commonService.getSameValueOf(this.listResidences, 'address', 'Borj Cedria');
+    console.log('number of addresses ',this.similarAddressesCount );
   }
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
